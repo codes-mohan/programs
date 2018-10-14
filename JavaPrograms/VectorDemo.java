@@ -1,22 +1,31 @@
 import java.util.*;
+
 public class VectorDemo
 {
-  public static void main(String[] args) 
-   {
-      Vector<Integer> ve = new Vector<>();
-       ve.add(10);
-       ve.add(20);
-       ve.add(30);
-       ve.add(40);
-       ve.add(50);
-       ve.add(60);
-       
-       Enumeration<Integer> en = ve.elements();
-       
-       while(en.hasMoreElements())
-       {
-           System.out.println(en.nextElement());
-       }
-   }
-    
+	public static void main(String args[])
+		{
+			Vector <String>vec  = new Vector<String>(5,10);
+			
+			//5 is initial capacity
+			// 10 is incremens capacity
+			System.out.println("initial capacity: "+vec.capacity());
+			vec.add("string1");
+			vec.add("string2");
+			vec.add("string3");
+			vec.add("string4");
+			vec.add("string5");
+			vec.add("string6");
+
+			for(int i =0;i<vec.size();i++)
+			System.out.println(vec.elementAt(i));
+
+			vec.remove(4);
+
+			for(int i =0;i<vec.size();i++)
+			System.out.println(vec.elementAt(i));
+
+
+
+
+		}
 }

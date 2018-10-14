@@ -1,41 +1,22 @@
-import java.io.IOException;
-class test1{
-	public static  void method() throws MyException
-	{
-		throw new MyException("errror!!");
-	}
-}
-public class ExceptionDemo {
-public static void main(String[] args) throws MyException {
-int a=10;
-int b=8;
-test1.method();
-
-}	
-	
-	
-}
-	
-	class MyException extends Exception{
-		MyException(String msg)
-		{
-			super(msg);
+public class ExceptionDemo
+{
+        public static void main(String []args)
+        {
+ 		@SuppressWarnings("unused")
+		int d,a;
+		try {	//monitor a block of code
+	        	d=0;
+                	a=42/d;
+			System.out.println("This will not be printed");
 		}
-	}
-	
-/*}
-@SuppressWarnings("finally")
-public static void main(String[] args) {
-	try {
-	throw new IOException();
-	//in checked exception throws keyword is must
-	}
-	finally {
-		// for  unchecked exception throws keyword is not required 
+		catch(ArithmeticException e)
+		{
+		//	System.out.println("Division by Zero");
+			//System.out.println("Division by Zero."+e);
+			//System.out.println("Division by Zero."+e.getMessage());
+		e.printStackTrace();
 
-	try {
-	System.out.println(4/0);
-
-	} 
-}*/
-
+		}
+		
+        }
+}

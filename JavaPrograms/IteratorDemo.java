@@ -1,55 +1,64 @@
-package CaveOfProgramming;
+// Demonstrate iterators.
+import java.util.*;
+class IteratorDemo 
+{
+  @SuppressWarnings("unchecked")
+public static void main(String args[]) 
+  {
 
+// create an array list
+	@SuppressWarnings("rawtypes")
+	ArrayList al = new ArrayList();
 
-import java.util.Iterator;
-import java.util.LinkedList;
- 
-public class IteratorDemo {
- 
-    public static void main(String[] args) {
- 
-        LinkedList<String> animals = new LinkedList<String>();
- 
-        animals.add("fox");
-        animals.add("cat");
-        animals.add("dog");
-        animals.add("rabbit");
-         
-        // "Old" way of iterating through lists (except that generics
-        // didn't exist pre Java 5). This way is still an integral part
-        // of Java; it allows you to remove items from the list
-        // and also supports the "for each" syntax behind the scenes.
- 
-        Iterator<String> it = animals.iterator();
- 
-        while (it.hasNext()) {
-            String value = it.next();
-            System.out.println(value);
-             
-            if(value.equals("cat")) {
-                it.remove();
-            }
-        }
- 
-        System.out.println();
-         
-        /*
-         * If you want to add items to a list while iterating through
-         * it, get a ListIterator using the .listIterator() method.
-         * ListIterator also has a previous() method, allowing you to
-         * "rewind" the iterator so that you can add items before
-         * the current item.
-         */
- 
-        // / Modern iteration, Java 5 and later; "for each" loop
- 
-        for (String animal : animals) {
-            System.out.println(animal);
-             
-            // The following won't work; you need an iterator.
-            // Throws ConcurrentModificationException
-            // animals.remove(2);
-        }
-    }
- 
+// add elements to the array list
+	al.add("C");
+	al.add("A");
+	al.add("E");
+	al.add("B");
+	al.add("D");
+	al.add("F");
+
+// use iterator to display contents of al
+	System.out.print("Original contents of al: ");
+	@SuppressWarnings("rawtypes")
+	Iterator itr = al.iterator();
+	
+	while(itr.hasNext()) 
+	{
+		Object element = itr.next();
+		System.out.print(element + " ");
+	}
+	System.out.println();
+
+// modify objects being iterated
+	@SuppressWarnings("rawtypes")
+	ListIterator litr = al.listIterator();
+	while(litr.hasNext()) 
+	{
+		Object element = litr.next();
+		litr.set(element + "+");
+	}
+	System.out.print("Modified contents of al: ");
+	itr = al.iterator();
+	while(itr.hasNext()) 
+	{
+		Object element = itr.next();
+		System.out.print(element + " ");
+	}
+	System.out.println();
+
+// now, display the list backwards
+	System.out.print("Modified list backwards: ");
+	while(litr.hasPrevious()) 
+	{
+		Object element = litr.previous();
+		System.out.print(element + " ");
+	}	
+	System.out.println();
+  }
 }
+
+
+
+
+

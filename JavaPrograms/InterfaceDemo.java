@@ -1,47 +1,28 @@
-/*  interface can extend another interface 
-interface actor{
- 
-	void movies();
-}
-interface style extends actor{
-	void bestStyle();
-}
-
-
-public abstract  class InterfaceDemo implements style {
+public class InterfaceDemo {
 public static void main(String[] args) {
-	
-	
+	class1 c1=new class1();
+	class2 c2=new class2();
+	c1.print();
+	c2.print();
 }
-}
-*/
-interface run{
- 
-	void running();
-}
-interface eat{
-	void eating();
 }
 
-// interface supports multiple inheritance
-public   class InterfaceDemo implements run,eat {
-public static void main(String[] args) {
-	InterfaceDemo d=new InterfaceDemo();
-	d.eating();
-	d.running();
-	
+interface base {
+	void print();
 }
 
-@Override
-public void eating() {
-	System.out.println("eating");
-	
+class class1 implements base {
+
+	public void print() {
+		System.out.println("in class 1 implementation");
+	}
 }
 
-@Override
-public void running() {
-	System.out.println("running");
-	
-}
+class class2 implements base {
+
+	public void print() {
+		System.out.println("in class 2 implementation ");
+
+	}
 }
 
